@@ -1,0 +1,41 @@
+package com.example.da_tantaydo.model.entity;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import java.time.LocalDateTime;
+
+@Entity
+@Getter
+@Setter
+@Table(name = "CUSTOMERS")
+public class Customer {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
+    private Long id;
+
+    @OneToOne
+    @JoinColumn(name = "USER_ID", unique = true)
+    private User user;
+
+    @Column(name ="CCCD")
+    private String cccd;
+
+    @Column(name = "FULL_NAME")
+    private String fullName;
+
+    @Column(name ="DATE")
+    private LocalDateTime dateTime;
+
+    @Column(name = "PHONE")
+    private String phone;
+
+    @Column (name ="ADDRESS")
+    private String address;
+
+    @Column(name ="IMG")
+    private String img;
+
+}
